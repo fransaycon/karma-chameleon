@@ -1,7 +1,19 @@
 import { useState } from "react"
 import stitches, { darkTheme, funkyTheme } from "./stitches"
 
-const { styled } = stitches
+const { styled, keyframes } = stitches
+
+const goIn = keyframes({
+  "0%": {
+    opacity: 0,
+    transform: "translateY(10px)",
+  },
+  "100%": {
+    opacity: 1,
+    transform: "translateY(0px)",
+    visibility: "visible",
+  }
+})
 
 const Container = styled("div", {
   alignItems: "center",
@@ -11,8 +23,11 @@ const Container = styled("div", {
   flexDirection: "column",
   justifyContent: "center",
   minHeight: "100vh",
-  width: "100vw",
   transition: "background-color ease-in 0.5s",
+  width: "100vw",
+  "> h1": {
+    animation: `${goIn} ease-in 0.5s`,
+  },
 })
 
 const ButtonContainer = styled("div", {
@@ -36,6 +51,8 @@ const ButtonContainer = styled("div", {
 })
 
 const Button = styled("button", {
+  animation: `${goIn} ease-in 0.5s`,
+  animationFillMode: "forwards",
   backgroundColor: "$bg",
   border: "2px solid",
   borderColor: "$fg",
@@ -44,6 +61,7 @@ const Button = styled("button", {
   color: "$fg",
   fontSize: "$rg",
   padding: "$rg $lg",
+  visibility: "hidden",
   "&:hover": {
     cursor: "pointer",
   },
@@ -62,9 +80,9 @@ const App = () => {
     <Container className={themeMap[theme]}>
       <h1>Karma Chameleon</h1>
       <ButtonContainer>
-        <Button onClick={() => setTheme('light')}>Light</Button>
-        <Button onClick={() => setTheme('dark')}>Dark</Button>
-        <Button onClick={() => setTheme('funky')}>Funky</Button>
+        <Button css={{animationDelay: "0.25s"}} onClick={() => setTheme('light')}>Light</Button>
+        <Button css={{animationDelay: "0.5s"}} onClick={() => setTheme('dark')}>Dark</Button>
+        <Button css={{animationDelay: "0.75s"}} onClick={() => setTheme('funky')}>Funky</Button>
       </ButtonContainer>
     </Container>
   );
