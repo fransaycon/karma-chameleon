@@ -62,6 +62,14 @@ const Button = styled("button", {
   fontSize: "$rg",
   padding: "$rg $lg",
   visibility: "hidden",
+  variants: {
+    selected: {
+      true: {
+        color: "$bg",
+        backgroundColor: "$fg",
+      },
+    },
+  },
   "&:hover": {
     cursor: "pointer",
   },
@@ -80,9 +88,27 @@ const App = () => {
     <Container className={themeMap[theme]}>
       <h1>Karma Chameleon</h1>
       <ButtonContainer>
-        <Button css={{animationDelay: "0.25s"}} onClick={() => setTheme('light')}>Light</Button>
-        <Button css={{animationDelay: "0.5s"}} onClick={() => setTheme('dark')}>Dark</Button>
-        <Button css={{animationDelay: "0.75s"}} onClick={() => setTheme('funky')}>Funky</Button>
+        <Button
+          css={{animationDelay: "0.25s"}}
+          selected={theme === 'light'}
+          onClick={() => setTheme('light')}
+        >
+          Light
+        </Button>
+        <Button
+          css={{animationDelay: "0.5s"}}
+          selected={theme === 'dark'}
+          onClick={() => setTheme('dark')}
+        >
+          Dark
+        </Button>
+        <Button
+          css={{animationDelay: "0.75s"}}
+          selected={theme === 'funky'}
+          onClick={() => setTheme('funky')}
+        >
+          Funky
+        </Button>
       </ButtonContainer>
     </Container>
   );
