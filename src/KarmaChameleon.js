@@ -12,6 +12,7 @@ const Container = styled("div", {
   justifyContent: "center",
   minHeight: "100vh",
   width: "100vw",
+  transition: "background-color ease-in 0.5s",
 })
 
 const ButtonContainer = styled("div", {
