@@ -19,11 +19,19 @@ const ButtonContainer = styled("div", {
   fontSize: "$xxl",
   marginTop: "$lg",
   maxWidth: "1200px",
+  flexDirection: "column",
+  "@bp2": {
+    flexDirection: "row",
+  },
   "> button": {
     "+ button": {
-      marginLeft: "$lg",
-    }
-  }
+      marginTop: "$lg",
+      "@bp2": {
+        marginTop: 0,
+        marginLeft: "$lg",
+      },
+    },
+  },
 })
 
 const Button = styled("button", {
