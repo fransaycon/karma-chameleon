@@ -50,25 +50,11 @@ const stitches = createStitches({
 })
 
 const injectGlobalStyles = stitches.globalCss({
-  "*": { boxSizing: "border-box" },
-  "*:after": { boxSizing: "border-box" },
-  "*:before": { boxSizing: "border-box" },
+  "*": { boxSizing: "border-box", fontFamily: "Hammersmith One" },
+  "*:after": { boxSizing: "border-box", fontFamily: "Hammersmith One" },
+  "*:before": { boxSizing: "border-box", fontFamily: "Hammersmith One" },
   body: { margin: 0, padding: 0 },
   h1: { margin: 0 },
-  "@font-face": [
-    {
-      fontFamily: "Abril Fatface",
-      fontStyle: "normal",
-      fontDisplay: "swap",
-      fontWeight: 400,
-      src: `
-      local('Abril Fatface Regular '),
-      local('Abril Fatface-Regular'),
-      url('/fonts/abril-fatface/abril-fatface-latin-400.woff2') format('woff2'),
-      url('/fonts/abril-fatface/abril-fatface-latin-400.woff') format('woff');
-    `,
-    },
-  ],
 })
 
 injectGlobalStyles()
