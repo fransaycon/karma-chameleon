@@ -9,18 +9,18 @@ const stitches = createStitches({
   theme: {
     colors: {
       // generated from coolors.co
-      $aliceBlue: "#F4FAFF",
-      $davyGrey: "#535657",
+      aliceBlue: "#F4FAFF",
+      davyGrey: "#535657",
 
-      $cadetBlue: "#4F646F",
-      $platinum: "#DEE7E7",
+      darkJungleGreen: "#202A25",
+      fluorescentBlue: "#26F0F1",
 
-      $darkKhaki: "#B5BA72",
-      $darkSlateBlue: "#4F359B",
+      darkKhaki: "#B5BA72",
+      darkSlateBlue: "#4F359B",
 
       // elements
-      $bg: "$aliceBlue",
-      $fg: "$davyGrey",
+      bg: "$aliceBlue",
+      fg: "$davyGrey",
     },
     space: {
       xxs: "0.422rem",
@@ -47,6 +47,20 @@ const stitches = createStitches({
       quattrocentroSans: "Quattrocento Sans, sans-serif",
     },
   },
+})
+
+export const darkTheme = stitches.createTheme({
+    colors: {
+        bg: "$darkJungleGreen",
+        fg: "$fluorescentBlue",
+    }
+})
+
+export const funkyTheme = stitches.createTheme({
+    colors: {
+        bg: "$darkKhaki",
+        fg: "$darkSlateBlue",
+    }
 })
 
 const injectGlobalStyles = stitches.globalCss({

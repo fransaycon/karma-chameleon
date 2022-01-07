@@ -1,4 +1,5 @@
-import stitches from "./stitches"
+import { useState } from "react"
+import stitches, { darkTheme, funkyTheme } from "./stitches"
 
 const { styled } = stitches
 
@@ -39,14 +40,22 @@ const Button = styled("button", {
   },
 })
 
+const themeMap = {
+  light: null,
+  dark: darkTheme,
+  funky: funkyTheme,
+}
+
 const App = () => {
+  const [theme, setTheme] = useState('light')
+
   return (
-    <Container>
+    <Container className={themeMap[theme]}>
       <h1>Karma Chameleon</h1>
       <ButtonContainer>
-        <Button>Light</Button>
-        <Button>Dark</Button>
-        <Button>Funky</Button>
+        <Button onClick={() => setTheme('light')}>Light</Button>
+        <Button onClick={() => setTheme('dark')}>Dark</Button>
+        <Button onClick={() => setTheme('funky')}>Funky</Button>
       </ButtonContainer>
     </Container>
   );
